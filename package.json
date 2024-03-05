@@ -1,0 +1,52 @@
+{
+  "name": "nezdem.com",
+  "description": "nezdem.com",
+  "version": "0.0.1",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Dmitriy Yakovlev",
+      "email": "me@nezdem.com",
+      "url": "https://nezdem.com"
+    }
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fontsource/unbounded": "^5.0.19",
+    "@supabase/ssr": "^0.0.10",
+    "@supabase/supabase-js": "^2.39.7",
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
+    "autoprefixer": "10.4.16",
+    "clsx": "^2.1.0",
+    "next": "14.0.4",
+    "postcss": "8.4.32",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^9.0.1",
+    "swr": "^2.2.5",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss": "3.3.6",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "5.3.3"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.1.2",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/mdx": "^2.0.11",
+    "@types/node": "20.10.4",
+    "@types/react": "18.2.43",
+    "@types/react-dom": "18.2.17",
+    "encoding": "^0.1.13",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11"
+  }
+}
