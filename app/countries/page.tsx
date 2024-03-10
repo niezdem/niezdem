@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 const TripsByYear = ({ title, trips }: { title: string; trips: Travel[] }) => (
   <div key={title} className="mb-10">
-    <h2 className="font-unbounded mb-3 text-2xl font-bold">{title}</h2>
+    <h2 className="mb-3 text-2xl font-bold">{title}</h2>
     <ul>
       {trips.map((trip, index) => (
         <li key={index} className="mb-3">
@@ -29,7 +29,7 @@ const CountriesPage = async () => {
   if (!data) {
     return (
       <main className="m-6 mx-auto max-w-3xl">
-        <h1 className="font-unbounded mb-10 text-3xl font-bold">
+        <h1 className="mb-10 text-3xl font-bold">
           Something bad happened. Refresh the page.
         </h1>
       </main>
@@ -42,9 +42,9 @@ const CountriesPage = async () => {
 
   return (
     <main className="m-6 mx-auto max-w-3xl">
-      <h1 className="font-unbounded mb-10 text-3xl font-bold">
+      <h1 className="mb-10 text-3xl font-bold">
         Countries I visited:{' '}
-        <span className="text-gray-400">{totalCountries}</span>
+        <span className="text-gray-100 text-gray-400">{totalCountries}</span>
       </h1>
 
       <div className="grid gap-2 md:grid-cols-2">

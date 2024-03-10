@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 import Title from './Title';
 
 type Props = {
-  size?: 'sm' | 'md' | 'lg';
   link?: string;
   title?: string;
   className?: string;
@@ -13,26 +12,12 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const Card = ({
-  size = 'sm',
-  link,
-  title,
-  className,
-  style,
-  children,
-}: Props) => {
+const Card = ({ link, title, className, style, children }: Props) => {
   const commonClasses =
-    'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-black px-7 py-5 transition duration-300';
-
-  const sizeClasses = {
-    sm: 'max-w-ful sm:max-w-[20rem]',
-    md: 'max-w-full sm:max-w-[41rem] md:max-w-[41.25rem]',
-    lg: 'max-w-ful sm:max-w-[83.5rem] md:max-w-[83.75rem]',
-  };
+    'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-950 px-7 py-5 transition duration-300';
 
   const classes = cn(
     commonClasses,
-    sizeClasses[size],
     link && 'cursor-pointer hover:-translate-y-1',
     className,
   );

@@ -13,7 +13,7 @@ type Props = {
 const Title = ({
   order = 1,
   size = '2xl',
-  color = 'gray-100',
+  color = 'zinc-800 dark:text-zinc-100',
   align = 'left',
   className,
   children,
@@ -27,7 +27,7 @@ const Title = ({
     '3xl': 'text-3xl',
     '4xl': 'text-4xl',
   };
-  const commonClasses = 'font-unbounded font-bold';
+  const commonClasses = 'font-bold';
   const colorClass = color && `text-${color}`;
   const alignClass = `text-${align}`;
 

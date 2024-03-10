@@ -15,7 +15,7 @@ type Props = {
 
 const Text = ({
   size = 'md',
-  color = 'gray-100',
+  color = 'zinc-800 dark:text-zinc-100',
   weight = 'normal',
   align = 'left',
   truncate,
@@ -33,7 +33,6 @@ const Text = ({
     '3xl': 'text-3xl',
     '4xl': 'text-4xl',
   };
-  const commonClasses = 'font-iawriterquattro';
   const colorClass = color && `text-${color}`;
   const weightClass = weight && `font-${weight}`;
   const alignClass = `text-${align}`;
@@ -43,7 +42,6 @@ const Text = ({
     backlight && 'rounded-md bg-white bg-opacity-20 px-2 py-0.5';
 
   const classes = cn(
-    commonClasses,
     sizeClasses[size],
     colorClass,
     weightClass,
