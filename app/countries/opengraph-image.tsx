@@ -30,9 +30,7 @@ export default async function CountriesOG() {
         <main tw="flex grow pt-4 w-full justify-center items-center">
           <div tw="flex flex-row">
             <div tw="flex flex-col px-10 grow text-[28px] h-120 justify-center text-white">
-              <div tw="text-2xl mb-7" style={font('Unbounded 400')}>
-                Yuri Nezdemkovski
-              </div>
+              <div tw="text-2xl mb-7" style={font('Unbounded 400')}></div>
 
               <div
                 tw="text-7xl mb-7 text-white flex"

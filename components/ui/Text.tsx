@@ -39,7 +39,7 @@ const Text = ({
   const truncateClass = truncate && 'truncate';
   const lineClampClass = lineClamp && `line-clamp-${lineClamp}`;
   const backlightClass =
-    backlight && 'rounded-md bg-white bg-opacity-20 px-2 py-0.5';
+    backlight && 'rounded-md bg-zinc-950/20 dark:bg-zinc-100/20 px-2 py-0.5';
 
   const classes = cn(
     sizeClasses[size],
