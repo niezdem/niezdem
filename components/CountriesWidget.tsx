@@ -69,7 +69,7 @@ const Flag = ({
 );
 
 const CountriesWidget = () => (
-  <Card link="/countries" title="Countries I visited">
+  <Card link="/countries" title="Countries I visited ➔">
     <div className="inline-flex flex-wrap gap-4">
       {countryList.map((country) => (
         <Flag {...country} key={country.countryCode} />
