@@ -15,7 +15,7 @@ type Props = {
 
 const Text = ({
   size = 'md',
-  color = 'zinc-800 dark:text-zinc-100',
+  color = 'zinc-800/75 dark:text-zinc-100/75',
   weight = 'normal',
   align = 'left',
   truncate,

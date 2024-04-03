@@ -3,20 +3,27 @@ import type { MDXComponents } from 'mdx/types';
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     p: ({ children }) => (
-      <p className="text-black dark:text-white">{children}</p>
+      <p className="text-base text-zinc-800/75 dark:text-zinc-100/75">
+        {children}
+      </p>
     ),
     h1: ({ children }) => (
-      <h1 className="font-unbounded text-3xl text-black dark:text-white sm:text-4xl">
+      <h1 className="font-unbounded text-3xl text-zinc-800 sm:text-4xl dark:text-zinc-100">
         {children}
       </h1>
     ),
     a: ({ children, href, ...props }) => (
-      <a href={href} className="text-black dark:text-white" {...props}>
+      <a
+        href={href}
+        target="_blank"
+        className="text-zinc-800 dark:text-zinc-100"
+        {...props}
+      >
         {children}
       </a>
     ),
     strong: ({ children }) => (
-      <strong className="text-black dark:text-white">{children}</strong>
+      <strong className="text-zinc-800 dark:text-zinc-100">{children}</strong>
     ),
     ...components,
   };

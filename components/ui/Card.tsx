@@ -14,7 +14,7 @@ type Props = {
 
 const Card = ({ link, title, className, style, children }: Props) => {
   const commonClasses =
-    'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-950 px-7 py-5 transition duration-300';
+    'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-950 p-6 pb-8 transition duration-300';
 
   const classes = cn(
     commonClasses,
@@ -25,7 +25,7 @@ const Card = ({ link, title, className, style, children }: Props) => {
   const CardContent = () => (
     <>
       {title && (
-        <Title order={2} className="pb-6">
+        <Title order={2} className="pb-2 md:pb-4">
           {title}
         </Title>
       )}

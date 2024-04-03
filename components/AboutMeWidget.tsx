@@ -4,12 +4,14 @@ import Text from './ui/Text';
 const AboutMeWidget = () => (
   <Card title="About me" className="sm:col-span-2">
     <Text>
-      Hello there, I&apos;m <Text backlight>Dima</Text> - web design and
-      frontend development with over 6 years of experience. I specialize in
-      enhancing teamwork, optimizing communication between designers and
-      developers to reduce project development time. My goal is to create
-      innovative solutions and write clean, modern code. Let&apos;s collaborate
-      to make your projects even more successful!
+      Hey there! I&apos;m <Text backlight>Dima</Text> - your go-to guy for all
+      things web design and frontend development. With a solid 6+ years under my
+      belt, I&apos;m all about jazzing up teamwork and smoothing out the convo
+      between designers and developers. Why? Because who likes waiting ages for
+      projects to finish? Not me, and I&apos;m guessing not you either. My
+      mission is simple: cook up innovative solutions and keep that code looking
+      sharp and modern. Ready to amp up your projects? Let&apos;s make some
+      magic happen together!
     </Text>
   </Card>
 );
