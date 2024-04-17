@@ -9,8 +9,8 @@ const PortfolioPage = async () => {
 
   if (!data) {
     return (
-      <main className="m-6 mx-auto max-w-3xl">
-        <h1 className="mb-10 font-unbounded text-3xl font-bold">
+      <main className="mx-auto max-w-3xl">
+        <h1 className="font-unbounded mb-10 text-3xl font-bold">
           Something bad happened. Refresh the page.
         </h1>
       </main>
@@ -18,14 +18,19 @@ const PortfolioPage = async () => {
   }
 
   return (
-    <main className="m-6 mx-auto max-w-3xl">
-      <h1 className="mb-10 font-unbounded text-3xl font-bold">My Portfolio</h1>
+    <main className="mx-auto max-w-3xl">
+      <h1 className="font-unbounded mb-10 text-3xl font-bold">My Portfolio</h1>
       <ul>
         {data.map((item, index) => (
           <li key={index} className="mb-3 flex flex-col gap-1">
             <h3>{item.title}</h3>
-            <img src={item?.image ?? ''} alt={`Image for ${item?.title ?? ''}`} />
-            <div className="text-xs text-gray-400">{item?.tags?.join(', ') ?? ''}</div>
+            <img
+              src={item?.image ?? ''}
+              alt={`Image for ${item?.title ?? ''}`}
+            />
+            <div className="text-xs text-gray-400">
+              {item?.tags?.join(', ') ?? ''}
+            </div>
             <Markdown className="prose">{item.project_mdx}</Markdown>
             <p>{item.description}</p>
           </li>

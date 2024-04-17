@@ -96,7 +96,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
     >
       <head />
       <body className="font-montserrat text-zinc-800 dark:text-zinc-100">
-        <div className="flex justify-center px-4 md:px-5">
+        <div className="flex justify-center px-4 py-6 md:px-5">
           <div className="w-full max-w-[83.75rem]">
             <NavBar />
             {children}

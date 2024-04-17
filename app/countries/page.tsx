@@ -4,7 +4,7 @@ export const revalidate = 10;
 export const dynamic = 'force-dynamic';
 
 const TripsByYear = ({ title, trips }: { title: string; trips: Travel[] }) => (
-  <div key={title} className="mb-10">
+  <div key={title}>
     <h2 className="mb-3 text-2xl font-bold">{title}</h2>
     <ul>
       {trips.map((trip, index) => (
@@ -28,7 +28,7 @@ const CountriesPage = async () => {
 
   if (!data) {
     return (
-      <main className="m-6 mx-auto max-w-3xl">
+      <main className="mx-auto max-w-4xl">
         <h1 className="mb-10 text-3xl font-bold">
           Something bad happened. Refresh the page.
         </h1>
@@ -41,20 +41,17 @@ const CountriesPage = async () => {
   );
 
   return (
-    <main className="m-6 mx-auto max-w-3xl">
+    <main className="mx-auto max-w-4xl">
       <h1 className="mb-10 text-3xl font-bold">
         Countries I visited:{' '}
         <span className="text-gray-100 text-gray-400">{totalCountries}</span>
       </h1>
 
-      <div className="grid gap-2 md:grid-cols-2">
-        <div>
-          {entries.map(([year, trips]) => {
-            if (year === 'inProgress') return;
-
-            return <TripsByYear key={year} title={year} trips={trips} />;
-          })}
-        </div>
+      <div className="flex flex-col gap-8">
+        {entries.map(([year, trips]) => {
+          if (year === 'inProgress') return;
+          return <TripsByYear key={year} title={year} trips={trips} />;
+        })}
       </div>
     </main>
   );
