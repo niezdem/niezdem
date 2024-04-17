@@ -15,107 +15,78 @@ const montserrat = Montserrat_Alternates({
   display: 'swap',
 });
 
-// export const metadata: Metadata = {
-//   metadataBase: new URL('https://nezdemkovski.com'),
-//   title: {
-//     default: 'Yuri Nezdemkovski',
-//     template: '%s | Yuri Nezdemkovski',
-//   },
-//   description:
-//     'I am Yuri — a seasoned web developer with over 10 years of experience. Now, as a developer manager, I am passionate about leading teams and delivering top-notch results.',
-//   openGraph: {
-//     title: 'Yuri Nezdemkovski',
-//     description:
-//       'I am Yuri — a seasoned web developer with over 10 years of experience. Now, as a developer manager, I am passionate about leading teams and delivering top-notch results.',
-//     url: 'https://nezdemkovski.com',
-//     siteName: 'Yuri Nezdemkovski',
-//     images: [
-//       {
-//         url: 'https://nezdemkovski.com/og.png',
-//         width: 1200,
-//         height: 628,
-//       },
-//     ],
-//     locale: 'en-US',
-//     type: 'website',
-//   },
-//   robots: {
-//     index: true,
-//     follow: true,
-//     googleBot: {
-//       index: true,
-//       follow: true,
-//       'max-video-preview': -1,
-//       'max-image-preview': 'large',
-//       'max-snippet': -1,
-//     },
-//   },
-//   twitter: {
-//     title: 'Yuri Nezdemkovski',
-//     card: 'summary_large_image',
-//   },
-//   icons: {
-//     icon: '/favicons/favicon-96x96.ico',
-//     shortcut: '/favicons/favicon.ico',
-//     apple: [
-//       { url: '/favicons/apple-icon.png' },
-//       {
-//         url: '/favicons/apple-icon-57x57.png',
-//         sizes: '57x57',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-60x60.png',
-//         sizes: '60x60',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-72x72.png',
-//         sizes: '72x72',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-76x76.png',
-//         sizes: '72x72',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-114x114.png',
-//         sizes: '114x114',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-120x120.png',
-//         sizes: '120x120',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-144x144.png',
-//         sizes: '144x144',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-152x152.png',
-//         sizes: '152x152',
-//         type: 'image/png',
-//       },
-//       {
-//         url: '/favicons/apple-icon-180x180.png',
-//         sizes: '180x180',
-//         type: 'image/png',
-//       },
-//     ],
-//     other: {
-//       rel: 'apple-touch-icon-precomposed',
-//       url: '/favicons/apple-touch-icon-precomposed.png',
-//     },
-//   },
-//   verification: {
-//     other: {
-//       me: ['https://mastodon.social/@nezdemkovski'],
-//     },
-//   },
-// };
+export const metadata: Metadata = {
+  metadataBase: new URL('https://nezdem.com'),
+  title: {
+    default: 'Dmitriy Yakovlev',
+    template: '%s | Dmitriy Yakovlev',
+  },
+  description:
+    'I am Dmitriy — your go-to guy for all things web design and frontend development',
+  openGraph: {
+    title: 'Dmitriy Yakovlev',
+    description:
+      'I am Dmitriy — your go-to guy for all things web design and frontend development',
+    url: 'https://nezdem.com',
+    siteName: 'Dmitriy Yakovlev',
+    images: [
+      {
+        url: 'https://nezdemk.com/og.png',
+        width: 1200,
+        height: 628,
+      },
+    ],
+    locale: 'en-US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  twitter: {
+    title: 'Dmitriy Yakovlev',
+    card: 'summary_large_image',
+  },
+  icons: {
+    icon: '/favicons/favicon.ico',
+    shortcut: '/favicons/favicon.ico',
+    apple: [
+      { url: '/favicons/apple-icon.png' },
+      {
+        url: '/favicons/apple-icon-60x60.png',
+        sizes: '60x60',
+        type: 'image/png',
+      },
+      {
+        url: '/favicons/apple-icon-76x76.png',
+        sizes: '76x76',
+        type: 'image/png',
+      },
+      {
+        url: '/favicons/apple-icon-120x120.png',
+        sizes: '120x120',
+        type: 'image/png',
+      },
+      {
+        url: '/favicons/apple-icon-152x152.png',
+        sizes: '152x152',
+        type: 'image/png',
+      },
+      {
+        url: '/favicons/apple-icon-180x180.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
+  },
+};
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (

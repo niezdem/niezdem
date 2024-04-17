@@ -43,7 +43,7 @@ const CurrentLocationWidget = () => {
         <Image
           width={60}
           height={40}
-          src="/flags/pl.svg"
+          src="/images/flag_pl.svg"
           alt="Poland flag"
           title="Poland"
         />
@@ -55,7 +55,7 @@ const CurrentLocationWidget = () => {
             ) : (
               <>
                 <span>{hours}</span>
-                <span className="animate-blink-slow mx-1">:</span>
+                <span className="mx-1 animate-blink-slow">:</span>
                 <span>{minutes}</span>
               </>
             )}
