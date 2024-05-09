@@ -6,53 +6,35 @@ import formatDate from '@/utils/formatDate';
 export const revalidate = 10;
 export const dynamic = 'force-dynamic';
 
-const PCBuildData = {
-  cpu: 'AMD Ryzen 9 7900X',
-  gpu: 'AMD Radeon RX 6800 XT',
-  motherBoard: 'ASUS ROG STRIX B650E-I GAMING WIFI',
-  ram: 'Kingston 32GB KIT DDR5 5600MHz CL36 FURY Beast Black EXPO',
-  ssd: 'Samsung 980 PRO 1TB',
-  powerSupply: 'Corsair SF750 750W',
-  waterCooling: 'ASUS ROG STRIX LC II 240',
-  case: 'LIAN-LI DAN A4-H2O X4, black',
+type PCBuildDataProps = {
+  title: string;
+  value: string;
 };
 
-const PCInfo = ({ data }: { data: typeof PCBuildData }) => (
+const pcBuildData: PCBuildDataProps[] = [
+  { title: 'CPU', value: 'AMD Ryzen 9 5900X' },
+  { title: 'Graphic Card', value: 'NVIDIA GeForce RTX 4070 Ti' },
+  { title: 'Motherboard', value: 'Asus ROG Strix B550-F Gaming' },
+  {
+    title: 'RAM',
+    value: 'Kingston Fury & HyperX Predator RGB 32GB(4x8GB) DDR4 3600MHz CL17',
+  },
+  { title: 'SSD', value: 'Lexar NM620 2TB + Lexar NM800 Pro 1TB' },
+  { title: 'Water Cooling System', value: 'Arctic Liquid Freezer II' },
+  { title: 'Power Supply', value: 'SilentiumPC 750W Supremo FM2 Gold' },
+  { title: 'Case', value: 'SilentiumPC Regnum RG6V EVO TG ARGB' },
+];
+
+const PCInfo = () => (
   <div className="mb-6">
     <h2 className="font-unbounded mb-3 text-2xl font-bold">My PC Build</h2>
     <ul>
-      <li className="mb-3">
-        <h3>{data.cpu}</h3>
-        <div className="text-xs text-gray-400">CPU</div>
-      </li>
-      <li className="mb-3">
-        <h3>{data.gpu}</h3>
-        <div className="text-xs text-gray-400">Graphic Card</div>
-      </li>
-      <li className="mb-3">
-        <h3>{data.motherBoard}</h3>
-        <div className="text-xs text-gray-400">Motherboard</div>
-      </li>
-      <li className="mb-3">
-        <h3>{data.powerSupply}</h3>
-        <div className="text-xs text-gray-400">Power Supply</div>
-      </li>
-      <li className="mb-3">
-        <h3>{data.waterCooling}</h3>
-        <div className="text-xs text-gray-400">Water Cooling System</div>
-      </li>
-      <li className="mb-3">
-        <h3>{data.ram}</h3>
-        <div className="text-xs text-gray-400">RAM</div>
-      </li>
-      <li className="mb-3">
-        <h3>{data.ssd}</h3>
-        <div className="text-xs text-gray-400">SSD</div>
-      </li>
-      <li className="mb-3">
-        <h3>{data.case}</h3>
-        <div className="text-xs text-gray-400">Case</div>
-      </li>
+      {pcBuildData.map(({ ...props }, key) => (
+        <li key={key} className="mb-3">
+          <h3>{props.value}</h3>
+          <div className="text-xs text-gray-400">{props.title}</div>
+        </li>
+      ))}
     </ul>
   </div>
 );
@@ -68,19 +50,19 @@ const GamesByYear = async ({
 
   return (
     <div key={title} className="mb-10">
-      <h2 className="font-unbounded mb-3 text-2xl font-bold">{title}</h2>
+      <h2 className="font-unbounded mb-4 text-2xl font-bold">{title}</h2>
       <ul>
         {gamesList.map((game, index) => (
-          <li key={index} className="mb-3 flex flex-col gap-1">
+          <li key={index} className="mb-4 flex flex-col gap-1">
             <h3>{game.name}</h3>
 
             <div className="text-xs text-gray-400">
-              {game.release_year} · {game.developer} · {game.platform}
+              {game.platform} · {game.developer}
             </div>
 
-            <span className="text-xs text-gray-400">
+            {/* <span className="text-xs text-gray-400">
               {formatDate(new Date(game.finished_date))}
-            </span>
+            </span> */}
             {userRights === 'ADMIN' && <RemoveGame id={game.id} />}
           </li>
         ))}
@@ -123,7 +105,7 @@ const GamesPage = async () => {
         </div>
 
         <div>
-          <PCInfo data={PCBuildData} />
+          <PCInfo />
         </div>
       </div>
     </main>
