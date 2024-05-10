@@ -44,7 +44,7 @@ const CountriesPage = async () => {
     <main className="mx-auto max-w-4xl">
       <h1 className="mb-10 text-3xl font-bold">
         Countries I visited:{' '}
-        <span className="text-gray-100 text-gray-400">{totalCountries}</span>
+        <span className="text-gray-400">{totalCountries}</span>
       </h1>
 
       <div className="flex flex-col gap-8">

@@ -101,8 +101,8 @@ const RootLayout = ({ children }: PropsWithChildren) => {
             <NavBar />
             {children}
           </div>
-          {/* <Analytics /> */}
-          {/* <SpeedInsights /> */}
+          <Analytics />
+          <SpeedInsights />
         </div>
       </body>
     </html>
