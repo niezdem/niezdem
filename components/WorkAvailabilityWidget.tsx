@@ -5,7 +5,7 @@ const WorkAvailabilityWidget = () => (
   <Card
     link="/contact"
     title={`Open to opportunities\u00A0➔`}
-    className={`bg-yellow-300 bg-[url('/images/noise.svg')] dark:bg-red-800`}
+    className={`bg-red-500 bg-[url('/images/noise.svg')] dark:bg-red-800`}
   >
     <Text>
       I&apos;m ready to dive into work without skipping a beat. Curious about

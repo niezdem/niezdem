@@ -40,12 +40,11 @@ create trigger on_auth_user_created
     for each row
 execute procedure handle_new_user();
 
-create type platform_type as enum ('PC', 'Macbook', 'PlayStation 4', 'PlayStation 5', 'Steam Deck', 'Yuzu Nintendo Switch Emulator');
+create type platform_type as enum ('PC', 'Xbox', 'PlayStation 5', 'Steam Deck', 'Nintendo');
 create table games
 (
     id            uuid primary key         not null default gen_random_uuid(),
     name          text                     not null,
-    release_year  numeric                  not null,
     developer     text                     not null,
     platform      platform_type            not null,
     finished_date date                     not null default now(),

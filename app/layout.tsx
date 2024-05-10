@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'Dmitriy Yakovlev',
     images: [
       {
-        url: 'https://nezdemk.com/og.png',
+        url: 'https://nezdem.com/og.png',
         width: 1200,
         height: 628,
       },

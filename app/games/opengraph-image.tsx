@@ -47,7 +47,7 @@ export default async function CountriesOG() {
                 >
                   <div tw="flex">{game.name}</div>
                   <div tw="flex text-xl leading-2 text-gray-400">
-                    {game.release_year} · {game.developer} · {game.platform}
+                    {game.developer} · {game.platform}
                   </div>
                 </div>
               ))}

@@ -42,7 +42,6 @@ export interface Database {
           id: string
           name: string
           platform: Database["public"]["Enums"]["platform_type"]
-          release_year: number
         }
         Insert: {
           created_at?: string
@@ -51,7 +50,6 @@ export interface Database {
           id?: string
           name: string
           platform: Database["public"]["Enums"]["platform_type"]
-          release_year: number
         }
         Update: {
           created_at?: string
@@ -60,7 +58,6 @@ export interface Database {
           id?: string
           name?: string
           platform?: Database["public"]["Enums"]["platform_type"]
-          release_year?: number
         }
         Relationships: []
       }
@@ -173,13 +170,7 @@ export interface Database {
       }
     }
     Enums: {
-      platform_type:
-        | "PC"
-        | "Macbook"
-        | "PlayStation 4"
-        | "PlayStation 5"
-        | "Steam Deck"
-        | "Yuzu Nintendo Switch Emulator"
+      platform_type: "PC" | "Xbox" | "PlayStation 5" | "Steam Deck" | "Nintendo"
       user_rights: "ADMIN" | "USER"
     }
     CompositeTypes: {

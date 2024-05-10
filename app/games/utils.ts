@@ -112,7 +112,6 @@ export const createGameItem = async ({
     await supabase.from('games').insert({
       name: name.toString(),
       developer: developer.toString(),
-      release_year: Number(releaseYear),
       platform,
       finished_date: finishedDate.toString(),
     });
