@@ -27,7 +27,7 @@ const Title = ({
     '3xl': 'text-3xl',
     '4xl': 'text-4xl',
   };
-  const commonClasses = 'font-bold';
+  const commonClasses = 'font-extrabold';
   const colorClass = color && `text-${color}`;
   const alignClass = `text-${align}`;
 

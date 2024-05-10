@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 type Props = {
-  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
   color?: string;
   weight?: 'normal' | 'bold';
   align?: 'left' | 'center' | 'right';
@@ -25,6 +25,7 @@ const Text = ({
   children,
 }: Props) => {
   const sizeClasses = {
+    xs: 'text-xs',
     sm: 'text-sm',
     md: 'text-base',
     lg: 'text-lg',

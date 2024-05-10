@@ -1,7 +1,9 @@
-import AddGame from '@/app/games/AddGame';
-import RemoveGame from '@/app/games/RemoveGame';
+// import AddGame from '@/app/games/AddGame';
+// import RemoveGame from '@/app/games/RemoveGame';
 import { type Game, getGames, getUserRights } from '@/app/games/utils';
 import formatDate from '@/utils/formatDate';
+import Title from '@/components/ui/Title';
+import Text from '@/components/ui/Text';
 
 export const revalidate = 10;
 export const dynamic = 'force-dynamic';
@@ -26,13 +28,15 @@ const pcBuildData: PCBuildDataProps[] = [
 ];
 
 const PCInfo = () => (
-  <div className="mb-6">
-    <h2 className="font-unbounded mb-3 text-2xl font-bold">My PC Build</h2>
-    <ul>
+  <div className="order-first flex flex-col gap-4 md:order-last">
+    <Title order={2}>My PC Build</Title>
+    <ul className="flex flex-col gap-4">
       {pcBuildData.map(({ ...props }, key) => (
-        <li key={key} className="mb-3">
-          <h3>{props.value}</h3>
-          <div className="text-xs text-gray-400">{props.title}</div>
+        <li key={key}>
+          <Text>{props.value}</Text>
+          <Text size="xs" className="opacity-50">
+            {props.title}
+          </Text>
         </li>
       ))}
     </ul>
@@ -46,41 +50,38 @@ const GamesByYear = async ({
   title: string;
   gamesList: Game[];
 }) => {
-  const userRights = await getUserRights();
+  // const userRights = await getUserRights();
 
   return (
-    <div key={title} className="mb-10">
-      <h2 className="font-unbounded mb-4 text-2xl font-bold">{title}</h2>
-      <ul>
-        {gamesList.map((game, index) => (
-          <li key={index} className="mb-4 flex flex-col gap-1">
-            <h3>{game.name}</h3>
+    <>
+      <h2 className="font-unbounded text-2xl font-bold">{title}</h2>
+      <ul className="flex flex-col gap-4">
+        {gamesList.map((game, key) => (
+          <li key={key}>
+            <Text>{game.name}</Text>
+            <Text size="xs" className="opacity-50">
+              {game.platform} · {formatDate(new Date(game.finished_date))}
+            </Text>
+            <Text size="xs" className="opacity-50">
+              {game.developer}
+            </Text>
 
-            <div className="text-xs text-gray-400">
-              {game.platform} · {game.developer}
-            </div>
-
-            {/* <span className="text-xs text-gray-400">
-              {formatDate(new Date(game.finished_date))}
-            </span> */}
-            {userRights === 'ADMIN' && <RemoveGame id={game.id} />}
+            {/* {userRights === 'ADMIN' && <RemoveGame id={game.id} />} */}
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
 const GamesPage = async () => {
   const { data, total } = await getGames();
-  const userRights = await getUserRights();
+  // const userRights = await getUserRights();
 
   if (!data) {
     return (
-      <main className="mx-auto max-w-3xl">
-        <h1 className="font-unbounded mb-10 text-3xl font-bold">
-          Something bad happened. Refresh the page.
-        </h1>
+      <main className="mx-auto max-w-4xl">
+        <Title size="3xl">Something bad happened. Refresh the page.</Title>
       </main>
     );
   }
@@ -90,23 +91,21 @@ const GamesPage = async () => {
   );
 
   return (
-    <main className="mx-auto max-w-3xl">
-      <h1 className="font-unbounded mb-10 text-3xl font-bold">
-        Games I beat: <span className="text-gray-400">{total}</span>
-      </h1>
+    <main className="mx-auto max-w-4xl">
+      <Title size="3xl" className="mb-8">
+        Games I beat: <span className="opacity-75">{total}</span>
+      </Title>
 
-      {userRights === 'ADMIN' && <AddGame />}
+      {/* {userRights === 'ADMIN' && <AddGame />} */}
 
-      <div className="grid gap-2 md:grid-cols-2">
-        <div className="">
-          {entries.map(([year, gamesList]) => (
-            <GamesByYear key={year} title={year} gamesList={gamesList} />
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="flex flex-col gap-6">
+          {entries.map(([year, gamesList], key) => (
+            <GamesByYear key={key} title={year} gamesList={gamesList} />
           ))}
         </div>
 
-        <div>
-          <PCInfo />
-        </div>
+        <PCInfo />
       </div>
     </main>
   );
