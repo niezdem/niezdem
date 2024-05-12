@@ -54,7 +54,7 @@ const GamesByYear = async ({
 
   return (
     <>
-      <h2 className="font-unbounded text-2xl font-bold">{title}</h2>
+      <Title order={2}>{title}</Title>
       <ul className="flex flex-col gap-4">
         {gamesList.map((game, key) => (
           <li key={key}>

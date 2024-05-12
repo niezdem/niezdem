@@ -1,26 +1,29 @@
 import { getTravels, type Travel } from '@/app/countries/utils';
+import Text from '@/components/ui/Text';
+import Title from '@/components/ui/Title';
 
 export const revalidate = 10;
 export const dynamic = 'force-dynamic';
 
 const TripsByYear = ({ title, trips }: { title: string; trips: Travel[] }) => (
-  <div key={title}>
-    <h2 className="mb-3 text-2xl font-bold">{title}</h2>
-    <ul>
-      {trips.map((trip, index) => (
-        <li key={index} className="mb-3">
-          <div className="inline-flex items-end gap-2">
-            <h3>
-              {trip.country_flag} {trip.city}, {trip.country}
-            </h3>
-            <div className="text-xs leading-relaxed text-gray-400">
+  <>
+    <Title order={2}>{title}</Title>
+    <ul className="flex flex-col gap-3">
+      {trips.map((trip, key) => (
+        <li key={key}>
+          <div className="flex items-center gap-2">
+            {trip.country_flag}
+            <Text>
+              {trip.city}, {trip.country}
+            </Text>
+            <Text size="xs" className="opacity-50">
               {trip.range_text}
-            </div>
+            </Text>
           </div>
         </li>
       ))}
     </ul>
-  </div>
+  </>
 );
 
 const CountriesPage = async () => {
@@ -29,9 +32,7 @@ const CountriesPage = async () => {
   if (!data) {
     return (
       <main className="mx-auto max-w-4xl">
-        <h1 className="mb-10 text-3xl font-bold">
-          Something bad happened. Refresh the page.
-        </h1>
+        <Title size="3xl">Something bad happened. Refresh the page.</Title>
       </main>
     );
   }
@@ -42,15 +43,15 @@ const CountriesPage = async () => {
 
   return (
     <main className="mx-auto max-w-4xl">
-      <h1 className="mb-10 text-3xl font-bold">
+      <Title size="3xl" className="mb-8">
         Countries I visited:{' '}
-        <span className="text-gray-400">{totalCountries}</span>
-      </h1>
+        <span className="opacity-75">{totalCountries}</span>
+      </Title>
 
-      <div className="flex flex-col gap-8">
-        {entries.map(([year, trips]) => {
+      <div className="flex flex-col gap-6">
+        {entries.map(([year, trips], key) => {
           if (year === 'inProgress') return;
-          return <TripsByYear key={year} title={year} trips={trips} />;
+          return <TripsByYear key={key} title={year} trips={trips} />;
         })}
       </div>
     </main>
