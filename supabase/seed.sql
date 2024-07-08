@@ -57,6 +57,7 @@ values ('DOOM Eternal', 'id Software', 'Xbox', '2020-10-07'),
        ('Teenage Mutant Ninja Turtles: Shredder''s Revenge', 'BlueTwelve Studio', 'PlayStation 5', '2024-02-18'),
        ('A Plague Tale: Requiem', 'Asobo Studio', 'PlayStation 5', '2024-03-04'),
        ('Half-Life: Alyx', 'Valve', 'PC', '2024-04-08');
+       ('Resident Evil 4: Separate Ways', 'Capcom', 'PC', '2023-06-07'),
 
 insert into travels (city, country, country_flag, start_date, end_date)
 values ('Tashkent', 'Uzbekistan', '🇺🇿', '2016-02-01', '2016-02-20'),
@@ -140,4 +141,7 @@ values ('Tashkent', 'Uzbekistan', '🇺🇿', '2016-02-01', '2016-02-20'),
        ('Czarna Góra', 'Poland', '🇵🇱', '2024-01-28', '2024-01-28'),
        ('Prague', 'Czech Republic', '🇨🇿', '2024-02-16', '2024-02-18'),
        ('Kraków', 'Poland', '🇵🇱', '2024-04-11', '2024-04-11'),
-       ('Dormowo', 'Poland', '🇵🇱', '2024-04-28', '2024-05-01');
+       ('Dormowo', 'Poland', '🇵🇱', '2024-04-28', '2024-05-01'),
+       ('Kraków', 'Poland', '🇵🇱', '2024-05-26', '2024-05-27'),
+       ('Poznań', 'Poland', '🇵🇱', '2024-06-21', '2024-06-21');
+              

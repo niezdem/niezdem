@@ -1,6 +1,13 @@
 // import AddGame from '@/app/games/AddGame';
 // import RemoveGame from '@/app/games/RemoveGame';
 import { type Game, getGames, getUserRights } from '@/app/games/utils';
+import {
+  NintendoIcon,
+  PCIcon,
+  PS5Icon,
+  SteamDeckIcon,
+  XboxIcon,
+} from '@/app/games/Platforms';
 import formatDate from '@/utils/formatDate';
 import Title from '@/components/ui/Title';
 import Text from '@/components/ui/Text';
@@ -26,6 +33,32 @@ const pcBuildData: PCBuildDataProps[] = [
   { title: 'Power Supply', value: 'SilentiumPC 750W Supremo FM2 Gold' },
   { title: 'Case', value: 'SilentiumPC Regnum RG6V EVO TG ARGB' },
 ];
+
+const PlatformIcon = ({ platform }: { platform: string }) => {
+  let Icon;
+
+  switch (platform) {
+    case 'PC':
+      Icon = PCIcon;
+      break;
+    case 'Xbox':
+      Icon = XboxIcon;
+      break;
+    case 'PlayStation 5':
+      Icon = PS5Icon;
+      break;
+    case 'Steam Deck':
+      Icon = SteamDeckIcon;
+      break;
+    case 'Nintendo':
+      Icon = NintendoIcon;
+      break;
+    default:
+      Icon = PCIcon;
+  }
+
+  return <Icon className="h-4 w-4 text-zinc-800/75 dark:text-zinc-100/75" />;
+};
 
 const PCInfo = () => (
   <div className="order-first flex flex-col gap-4 md:order-last">
@@ -59,12 +92,12 @@ const GamesByYear = async ({
         {gamesList.map((game, key) => (
           <li key={key}>
             <Text>{game.name}</Text>
-            <Text size="xs" className="opacity-50">
-              {game.platform} · {formatDate(new Date(game.finished_date))}
-            </Text>
-            <Text size="xs" className="opacity-50">
-              {game.developer}
-            </Text>
+            <div className="flex items-center gap-1">
+              <PlatformIcon platform={game.platform} />
+              <Text size="xs" className="opacity-50">
+                · {formatDate(new Date(game.finished_date))}
+              </Text>
+            </div>
 
             {/* {userRights === 'ADMIN' && <RemoveGame id={game.id} />} */}
           </li>
