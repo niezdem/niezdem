@@ -1,9 +1,24 @@
 import { getTravels, type Travel } from '@/app/countries/utils';
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
+import formatDate from '@/utils/formatDate';
 
 export const revalidate = 10;
 export const dynamic = 'force-dynamic';
+
+const formatTripDates = (
+  startDate: string | Date,
+  endDate: string | Date,
+): string => {
+  const start = startDate instanceof Date ? startDate : new Date(startDate);
+  const end = endDate instanceof Date ? endDate : new Date(endDate);
+
+  if (start.getTime() === end.getTime()) {
+    return formatDate(start);
+  } else {
+    return `${formatDate(start)} — ${formatDate(end)}`;
+  }
+};
 
 const TripsByYear = ({ title, trips }: { title: string; trips: Travel[] }) => (
   <>
@@ -11,14 +26,16 @@ const TripsByYear = ({ title, trips }: { title: string; trips: Travel[] }) => (
     <ul className="flex flex-col gap-3">
       {trips.map((trip, key) => (
         <li key={key}>
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2">
             {trip.country_flag}
-            <Text>
-              {trip.city}, {trip.country}
-            </Text>
-            <Text size="xs" className="opacity-50">
-              {trip.range_text}
-            </Text>
+            <div className="flex flex-col">
+              <Text>
+                {trip.city}, {trip.country}
+              </Text>
+              <Text size="xs" className="opacity-50">
+                {formatTripDates(trip.start_date, trip.end_date)}
+              </Text>
+            </div>
           </div>
         </li>
       ))}
