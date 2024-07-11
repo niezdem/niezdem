@@ -15,7 +15,7 @@ type Props = {
 
 const Text = ({
   size = 'md',
-  color = 'zinc-800/75 dark:text-zinc-100/75',
+  color = 'text-zinc-100/75',
   weight = 'normal',
   align = 'left',
   truncate,
@@ -39,8 +39,7 @@ const Text = ({
   const alignClass = `text-${align}`;
   const truncateClass = truncate && 'truncate';
   const lineClampClass = lineClamp && `line-clamp-${lineClamp}`;
-  const backlightClass =
-    backlight && 'rounded-md bg-zinc-950/15 dark:bg-zinc-100/20 px-2 py-0.5';
+  const backlightClass = backlight && 'rounded-md bg-zinc-100/20 px-2 py-0.5';
 
   const classes = cn(
     sizeClasses[size],

@@ -90,12 +90,9 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html
-      lang="en"
-      className={clsx('bg-zinc-100 dark:bg-zinc-900', montserrat.variable)}
-    >
+    <html lang="en" className={clsx('bg-[#121416]', montserrat.variable)}>
       <head />
-      <body className="font-montserrat text-zinc-800 dark:text-zinc-100">
+      <body className="font-montserrat text-zinc-100">
         <div className="flex justify-center px-4 py-6 md:px-5">
           <div className="w-full max-w-[83.75rem]">
             <NavBar />
@@ -104,6 +101,25 @@ const RootLayout = ({ children }: PropsWithChildren) => {
           <Analytics />
           <SpeedInsights />
         </div>
+
+        <svg
+          aria-hidden="true"
+          className="absolute inset-0 isolate -z-10 h-full w-full stroke-zinc-100/[0.03] [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
+        >
+          <defs>
+            <pattern
+              x="50%"
+              y={-1}
+              id="rect"
+              width={50}
+              height={50}
+              patternUnits="userSpaceOnUse"
+            >
+              <path d="M.5 50V.5H50" fill="none" />
+            </pattern>
+          </defs>
+          <rect fill="url(#rect)" width="100%" height="100%" strokeWidth={0} />
+        </svg>
       </body>
     </html>
   );

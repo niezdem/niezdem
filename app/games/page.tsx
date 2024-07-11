@@ -57,7 +57,7 @@ const PlatformIcon = ({ platform }: { platform: string }) => {
       Icon = PCIcon;
   }
 
-  return <Icon className="h-4 w-4 text-zinc-800/75 dark:text-zinc-100/75" />;
+  return <Icon className="h-4 w-4 text-zinc-100/75" />;
 };
 
 const PCInfo = () => (

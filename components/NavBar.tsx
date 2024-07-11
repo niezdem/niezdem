@@ -24,7 +24,7 @@ const NavBar = async () => {
               <div>Dmitriy</div>
               <div>Yakovlev</div>
             </Title>
-            <h1 className="text-xl font-bold leading-tight text-gray-800 dark:text-gray-100"></h1>
+            <h1 className="text-xl font-bold leading-tight text-gray-100"></h1>
           </div>
         </Link>
       </div>
