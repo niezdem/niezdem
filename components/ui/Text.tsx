@@ -1,8 +1,28 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 
+const sizeClasses = {
+  xs: 'text-xs',
+  sm: 'text-sm',
+  md: 'text-base',
+  lg: 'text-lg',
+  xl: 'text-xl',
+  '2xl': 'text-2xl',
+  '3xl': 'text-3xl',
+  '4xl': 'text-4xl',
+} as const;
+
+export type SizeClassKey = keyof typeof sizeClasses;
+export type ResponsiveSize = {
+  default: SizeClassKey;
+  sm?: SizeClassKey;
+  md?: SizeClassKey;
+  lg?: SizeClassKey;
+  xl?: SizeClassKey;
+};
+
 type Props = {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+  size?: SizeClassKey | ResponsiveSize;
   color?: string;
   weight?: 'normal' | 'bold';
   align?: 'left' | 'center' | 'right';
@@ -22,16 +42,28 @@ const Text = ({
   className,
   children,
 }: Props) => {
-  const sizeClasses = {
-    xs: 'text-xs',
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg',
-    xl: 'text-xl',
-    '2xl': 'text-2xl',
-    '3xl': 'text-3xl',
-    '4xl': 'text-4xl',
+  const getSizeClasses = (sizeProps: Props['size']): string => {
+    if (typeof sizeProps === 'string') {
+      return sizeClasses[sizeProps];
+    }
+
+    if (typeof sizeProps === 'object') {
+      return Object.entries(sizeProps)
+        .map(([breakpoint, value]) =>
+          breakpoint === 'default'
+            ? sizeClasses[value]
+            : `${breakpoint}:${sizeClasses[value]}`,
+        )
+        .join(' ');
+    }
+
+    if (typeof size === 'string' && size in sizeClasses) {
+      return sizeClasses[size as SizeClassKey];
+    }
+
+    return sizeClasses['lg'];
   };
+
   const colorClass = color && `${color}`;
   const weightClass = {
     normal: 'font-normal',
@@ -47,7 +79,7 @@ const Text = ({
     backlight && 'rounded-md bg-zinc-100/20 px-2 py-0.5 font-semibold';
 
   const classes = cn(
-    sizeClasses[size],
+    getSizeClasses(size),
     colorClass,
     weightClass[weight],
     alignClass[align],

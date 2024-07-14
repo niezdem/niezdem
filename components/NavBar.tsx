@@ -16,7 +16,7 @@ const NavBar = async () => {
   // } = await supabase.auth.getUser();
 
   return (
-    <nav className="n-container flex items-center justify-between py-10">
+    <nav className="n-container mb-10 flex items-center justify-between py-4 md:mb-20">
       <div className="flex items-center gap-4">
         <Link href="/">
           <div className="flex items-center gap-2">

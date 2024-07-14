@@ -1,5 +1,5 @@
-import Text from './ui/Text';
-import Title from './ui/Title';
+import Text from '@/components/ui/Text';
+import Title from '@/components/ui/Title';
 
 const DashboardTitle = () => (
   <div className="grid gap-4 sm:grid-cols-2">

@@ -5,9 +5,9 @@ import { Montserrat_Alternates } from 'next/font/google';
 // import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 
-import NavBar from '@/components/NavBar';
 import './globals.css';
 import Footer from '@/components/Footer';
+import NavBar from '@/components/NavBar';
 
 const montserrat = Montserrat_Alternates({
   subsets: ['latin'],
@@ -100,9 +100,9 @@ const RootLayout = ({ children }: PropsWithChildren) => {
         {/* <Analytics />
         <SpeedInsights /> */}
 
-        {/* <svg
+        <svg
           aria-hidden="true"
-          className="relative inset-0 isolate -z-10 h-full w-full stroke-zinc-100/[0.03] [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
+          className="absolute inset-0 isolate -z-10 h-full w-full stroke-zinc-100/[0.08] [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
         >
           <defs>
             <pattern
@@ -117,7 +117,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
             </pattern>
           </defs>
           <rect fill="url(#rect)" width="100%" height="100%" strokeWidth={0} />
-        </svg> */}
+        </svg>
       </body>
     </html>
   );
