@@ -3,7 +3,7 @@ import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 
 const AboutMeSection = () => (
-  <div className="n-container pb-16 pt-5 md:pb-32 md:pt-20">
+  <section className="n-container pb-10 md:pb-32 md:pt-20">
     <div className="flex flex-col md:max-w-[50rem]">
       <Link
         href="/contact"
@@ -34,7 +34,7 @@ const AboutMeSection = () => (
         Let&apos;s make some magic happen together!
       </Text>
     </div>
-  </div>
+  </section>
 );
 
 export default AboutMeSection;

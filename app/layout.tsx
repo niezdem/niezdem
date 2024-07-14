@@ -11,7 +11,7 @@ import NavBar from '@/components/NavBar';
 
 const montserrat = Montserrat_Alternates({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '600'],
   variable: '--font-montserrat',
   display: 'swap',
 });
@@ -91,19 +91,16 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="en" className={clsx('bg-zinc-950', montserrat.variable)}>
+    <html lang="en" className={clsx('h-full bg-zinc-950', montserrat.variable)}>
       <head />
-      <body className="font-montserrat ">
+      <body className="flex min-h-full flex-col font-montserrat">
         <NavBar />
-        {children}
+        <main className="flex-grow">{children}</main>
         <Footer />
         {/* <Analytics />
         <SpeedInsights /> */}
 
-        <svg
-          aria-hidden="true"
-          className="absolute inset-0 isolate -z-10 h-full w-full stroke-zinc-100/[0.08] [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
-        >
+        <svg className="absolute inset-0 isolate -z-10 h-full w-full stroke-zinc-100/[0.08] [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]">
           <defs>
             <pattern
               x="50%"
