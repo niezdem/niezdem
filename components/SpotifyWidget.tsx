@@ -15,6 +15,7 @@ const SpotifyWidget = () => {
 
   return !data || !data?.isPlaying ? (
     <Card
+      link=""
       style={{
         backgroundImage: `url('/images/noise.svg'), linear-gradient(to bottom, #1ed760, #0b341a)`,
       }}
@@ -25,7 +26,7 @@ const SpotifyWidget = () => {
       </Text>
     </Card>
   ) : (
-    <Card>
+    <Card link="">
       <div className="absolute bottom-0 left-0 right-0 top-0 z-10 h-full bg-cover">
         <Image
           src={data?.albumImageUrl}
