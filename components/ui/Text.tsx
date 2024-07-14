@@ -7,19 +7,17 @@ type Props = {
   weight?: 'normal' | 'bold';
   align?: 'left' | 'center' | 'right';
   truncate?: boolean;
-  lineClamp?: number;
   backlight?: boolean;
   className?: string;
   children: React.ReactNode;
 };
 
 const Text = ({
-  size = 'md',
-  color = 'text-zinc-100/75',
+  size = 'lg',
+  color = 'text-zinc-100/60',
   weight = 'normal',
   align = 'left',
   truncate,
-  lineClamp,
   backlight,
   className,
   children,
@@ -34,20 +32,26 @@ const Text = ({
     '3xl': 'text-3xl',
     '4xl': 'text-4xl',
   };
-  const colorClass = color && `text-${color}`;
-  const weightClass = weight && `font-${weight}`;
-  const alignClass = `text-${align}`;
+  const colorClass = color && `${color}`;
+  const weightClass = {
+    normal: 'font-normal',
+    bold: 'font-semibold',
+  };
+  const alignClass = {
+    left: 'text-left',
+    center: 'text-center',
+    right: 'text-right',
+  };
   const truncateClass = truncate && 'truncate';
-  const lineClampClass = lineClamp && `line-clamp-${lineClamp}`;
-  const backlightClass = backlight && 'rounded-md bg-zinc-100/20 px-2 py-0.5';
+  const backlightClass =
+    backlight && 'rounded-md bg-zinc-100/20 px-2 py-0.5 font-semibold';
 
   const classes = cn(
     sizeClasses[size],
     colorClass,
-    weightClass,
-    alignClass,
+    weightClass[weight],
+    alignClass[align],
     truncateClass,
-    lineClampClass,
     backlightClass,
     className,
   );

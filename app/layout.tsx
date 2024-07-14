@@ -1,12 +1,13 @@
 import { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import { Montserrat_Alternates } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
+// import { SpeedInsights } from '@vercel/speed-insights/next';
+// import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 
 import NavBar from '@/components/NavBar';
 import './globals.css';
+import Footer from '@/components/Footer';
 
 const montserrat = Montserrat_Alternates({
   subsets: ['latin'],
@@ -90,21 +91,18 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="en" className={clsx('bg-[#121416]', montserrat.variable)}>
+    <html lang="en" className={clsx('bg-zinc-950', montserrat.variable)}>
       <head />
-      <body className="font-montserrat text-zinc-100">
-        <div className="flex justify-center px-4 py-6 md:px-5">
-          <div className="w-full max-w-[83.75rem]">
-            <NavBar />
-            {children}
-          </div>
-          <Analytics />
-          <SpeedInsights />
-        </div>
+      <body className="font-montserrat ">
+        <NavBar />
+        {children}
+        <Footer />
+        {/* <Analytics />
+        <SpeedInsights /> */}
 
-        <svg
+        {/* <svg
           aria-hidden="true"
-          className="absolute inset-0 isolate -z-10 h-full w-full stroke-zinc-100/[0.03] [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
+          className="relative inset-0 isolate -z-10 h-full w-full stroke-zinc-100/[0.03] [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
         >
           <defs>
             <pattern
@@ -119,7 +117,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
             </pattern>
           </defs>
           <rect fill="url(#rect)" width="100%" height="100%" strokeWidth={0} />
-        </svg>
+        </svg> */}
       </body>
     </html>
   );

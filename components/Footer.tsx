@@ -1,36 +1,22 @@
 import Link from 'next/link';
-// import { cookies } from 'next/headers';
-
 import Logo from '@/components/Logo';
-import Title from './ui/Title';
-import CurrentTimeWidget from './CurrentTime';
-// import SignOutButton from '@/components/SignOutButton';
-// import { createClient } from '@/utils/supabase/server';
+import Text from './ui/Text';
 
-const NavBar = async () => {
-  // const cookieStore = cookies();
-  // const supabase = createClient(cookieStore);
-
-  // const {
-  //   data: { user },
-  // } = await supabase.auth.getUser();
-
+const Footer = async () => {
   return (
     <nav className="n-container flex items-center justify-between py-10">
       <div className="flex items-center gap-4">
         <Link href="/">
           <div className="flex items-center gap-2">
             <Logo width={50} height={50} />
-            <Title size="xl">
+            <Text>
               <div>Dmitriy</div>
               <div>Yakovlev</div>
-            </Title>
+            </Text>
             <h1 className="text-xl font-bold leading-tight text-gray-100"></h1>
           </div>
         </Link>
       </div>
-
-      <CurrentTimeWidget/>
 
       {/* <div>
         {user && (
@@ -43,4 +29,4 @@ const NavBar = async () => {
   );
 };
 
-export default NavBar;
+export default Footer;

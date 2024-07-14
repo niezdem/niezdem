@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import Title from './Title';
 
 type Props = {
-  link?: string;
+  link: string;
   title?: string;
   titleClassName?: string;
   hoverColor?: string;
@@ -17,13 +17,13 @@ type Props = {
 };
 
 const commonClasses =
-  'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-zinc-950 p-6 pb-8 transition duration-300';
+  'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-zinc-950 p-6 pb-8 transition duration-300 grayscale hover:grayscale-0';
 
 const Card = ({
   link,
   title,
   titleClassName,
-  hoverColor = 'rgba(236, 72, 153, 0.3)',
+  hoverColor = 'rgba(244, 63, 94, 0.2)',
   className,
   style,
   children,
@@ -61,16 +61,16 @@ const Card = ({
     </>
   );
 
-  const hoverEffect = link ? (
+  const hoverEffect = (
     <div
       className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
       style={{
         background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, ${hoverColor}, transparent 50%)`,
       }}
     />
-  ) : null;
+  );
 
-  return link ? (
+  return (
     <Link
       href={link}
       style={style}
@@ -81,10 +81,6 @@ const Card = ({
       {hoverEffect}
       <CardContent />
     </Link>
-  ) : (
-    <div style={style} className={classes}>
-      <CardContent />
-    </div>
   );
 };
 

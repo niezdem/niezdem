@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Card from './ui/Card';
 import Text from './ui/Text';
 
 const useCurrentTime = () => {
@@ -34,36 +32,25 @@ const useCurrentTime = () => {
   return { hours, minutes };
 };
 
-const CurrentLocationWidget = () => {
+const CurrentTimeWidget = () => {
   const { hours, minutes } = useCurrentTime();
 
   return (
-    <Card title="Current Location & Time">
-      <div className="flex items-center gap-4">
-        <Image
-          width={60}
-          height={40}
-          src="/images/flag_pl.svg"
-          alt="Poland flag"
-          title="Poland"
-        />
-        <div>
-          <Text>Wrocław, Poland</Text>
-          <Text>
-            {!hours && !minutes ? (
-              <span>...</span>
-            ) : (
-              <>
-                <span>{hours}</span>
-                <span className="mx-1 animate-blink-slow">:</span>
-                <span>{minutes}</span>
-              </>
-            )}
-          </Text>
-        </div>
-      </div>
-    </Card>
+    <div className="flex flex-col items-end gap-1">
+      <Text size="sm">Time in Poland</Text>
+      <Text>
+        {!hours && !minutes ? (
+          <span>...</span>
+        ) : (
+          <>
+            <span>{hours}</span>
+            <span className="mx-1 animate-blink-slow">:</span>
+            <span>{minutes}</span>
+          </>
+        )}
+      </Text>
+    </div>
   );
 };
 
-export default CurrentLocationWidget;
+export default CurrentTimeWidget;
