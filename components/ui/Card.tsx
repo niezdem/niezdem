@@ -17,7 +17,7 @@ type Props = {
 };
 
 const commonClasses =
-  'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-zinc-950 p-6 pb-8 transition duration-300 grayscale hover:grayscale-0';
+  'relative flex h-auto sm:h-80 w-full flex-col overflow-hidden rounded-3xl bg-zinc-950 p-6 pb-8 transition duration-300 md:grayscale hover:grayscale-0';
 
 const Card = ({
   link,
@@ -46,7 +46,7 @@ const Card = ({
 
   const classes = cn(
     commonClasses,
-    link && 'cursor-pointer hover:-translate-y-1',
+    link && 'cursor-pointer md:hover:scale-[1.02]',
     className,
   );
 
@@ -63,7 +63,7 @@ const Card = ({
 
   const hoverEffect = (
     <div
-      className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+      className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out md:group-hover:opacity-100"
       style={{
         background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, ${hoverColor}, transparent 50%)`,
       }}

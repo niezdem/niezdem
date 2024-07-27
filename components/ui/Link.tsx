@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { HTMLAttributeAnchorTarget } from 'react';
 import { default as LinkNext } from 'next/link';
-import { cn } from '@/lib/utils';
 
+import { cn } from '@/lib/utils';
 import Text, { ResponsiveSize, SizeClassKey } from '@/components/ui/Text';
 
 type Props = {
   href: string;
+  target?: HTMLAttributeAnchorTarget;
   size?: SizeClassKey | ResponsiveSize;
   label?: string;
   className?: string;
@@ -15,11 +17,18 @@ type Props = {
 const commonClasses =
   'group relative flex w-fit items-center gap-2 overflow-hidden pb-1';
 
-const Link = ({ href, size = 'lg', label, className, children }: Props) => {
+const Link = ({
+  href,
+  target,
+  size = 'sm',
+  label,
+  className,
+  children,
+}: Props) => {
   const classes = cn(commonClasses, className);
 
   return (
-    <LinkNext href={href} className={classes}>
+    <LinkNext target={target} href={href} className={classes}>
       {children}
       <Text size={size} weight="bold">
         {label}

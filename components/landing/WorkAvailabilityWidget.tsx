@@ -1,5 +1,5 @@
-import Card from './ui/Card';
-import Text from './ui/Text';
+import Card from '@/components/ui/Card';
+import Text from '@/components/ui/Text';
 
 const WorkAvailabilityWidget = () => (
   <Card

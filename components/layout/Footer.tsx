@@ -1,5 +1,5 @@
-import Logo from '@/components/Logo';
-import Text from './ui/Text';
+import Logo from '@/components/layout/Logo';
+import Text from '@/components/ui/Text';
 
 const Footer = () => {
   return (

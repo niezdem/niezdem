@@ -8,7 +8,6 @@ const AboutMeSection = () => (
       <Link
         href="/contact"
         label={`I'm ready for my next big adventure\u00A0➔`}
-        size="sm"
       >
         <div className="h-2 w-6 rounded-lg bg-rose-500" />
       </Link>

@@ -1,7 +1,7 @@
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 
-import WorkAvailabilityWidget from '@/components/WorkAvailabilityWidget';
+import WorkAvailabilityWidget from '@/components/landing/WorkAvailabilityWidget';
 import GamesWidget from '@/components/GamesWidget';
 import CountriesWidget from '@/components/CountriesWidget';
 
@@ -12,7 +12,7 @@ const DashboardSection = () => (
         'linear-gradient(180deg, transparent, rgba(113, 113, 122, .10) 35%, rgba(113, 113, 122, .10) 65%, transparent)',
     }}
   >
-    <section className="n-container pt-10 md:pt-20">
+    <section className="n-container -mb-10 py-10 md:-mb-20 md:py-20">
       <div className="grid gap-8 md:grid-cols-2 md:gap-10">
         <Title size="5xl">Let&apos;s get acquainted</Title>
         <Text>

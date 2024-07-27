@@ -1,9 +1,10 @@
 import Link from 'next/link';
 // import { cookies } from 'next/headers';
 
-import Logo from '@/components/Logo';
-import Title from './ui/Title';
-import CurrentTimeWidget from './CurrentTime';
+import Logo from '@/components/layout/Logo';
+import Title from '@/components/ui/Title';
+import CurrentTimeWidget from '@/components/layout/CurrentTime';
+
 // import SignOutButton from '@/components/SignOutButton';
 // import { createClient } from '@/utils/supabase/server';
 
@@ -21,9 +22,9 @@ const NavBar = async () => {
         <Link href="/">
           <div className="flex items-center gap-2">
             <Logo width={50} height={50} />
-            <Title size="xl">
-              <div>Dmitriy</div>
-              <div>Yakovlev</div>
+            <Title size="lg">
+              <div>Dmitr</div>
+              <div>Niezdemkowski</div>
             </Title>
           </div>
         </Link>

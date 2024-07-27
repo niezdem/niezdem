@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Text from './ui/Text';
+import Text from '@/components/ui/Text';
 
 const useCurrentTime = () => {
   const [hours, setHours] = useState('');
@@ -37,7 +37,7 @@ const CurrentTimeWidget = () => {
 
   return (
     <div className="flex flex-col items-end gap-1">
-      <Text size="sm">Time in Poland</Text>
+      <Text size="sm">My current time</Text>
       <Text>
         {!hours && !minutes ? (
           <span>...</span>
