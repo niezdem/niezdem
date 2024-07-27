@@ -24,10 +24,6 @@ const PortfolioPage = async () => {
         {data.map((item, index) => (
           <li key={index} className="mb-3 flex flex-col gap-1">
             <h3>{item.title}</h3>
-            <img
-              src={item?.image ?? ''}
-              alt={`Image for ${item?.title ?? ''}`}
-            />
             <div className="text-xs text-gray-400">
               {item?.tags?.join(', ') ?? ''}
             </div>
