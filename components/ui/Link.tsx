@@ -11,7 +11,7 @@ type Props = {
   size?: SizeClassKey | ResponsiveSize;
   label?: string;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const commonClasses =
@@ -30,10 +30,20 @@ const Link = ({
   return (
     <LinkNext target={target} href={href} className={classes}>
       {children}
-      <Text size={size} weight="bold">
+      <Text
+        size={size}
+        weight="bold"
+        className="text-rose-500 transition-colors duration-300"
+      >
         {label}
       </Text>
-      <span className="absolute bottom-0 left-0 h-2 w-full translate-x-[-100%] transform bg-rose-500 opacity-0 transition-all duration-300 group-focus:translate-x-0 group-focus:translate-y-1 group-focus:opacity-100 md:group-hover:translate-x-0 md:group-hover:translate-y-1 md:group-hover:opacity-100"></span>
+      <span
+        className="absolute bottom-0 left-0 hidden h-2 w-full bg-rose-500 transition-all 
+        duration-300 md:block
+        md:translate-x-[-100%] md:translate-y-0 md:opacity-0
+        md:group-hover:translate-x-0 md:group-hover:translate-y-1 md:group-hover:opacity-100
+        md:group-focus:translate-x-0 md:group-focus:translate-y-1 md:group-focus:opacity-100"
+      ></span>
     </LinkNext>
   );
 };

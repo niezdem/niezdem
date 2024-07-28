@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
 import NavBar from '@/components/layout/NavBar';
+import BackButton from '@/components/layout/BackButton';
 
 const montserrat = Montserrat_Alternates({
   subsets: ['latin'],
@@ -95,7 +96,10 @@ const RootLayout = ({ children }: PropsWithChildren) => {
       <head />
       <body className="flex min-h-full flex-col font-montserrat">
         <NavBar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow">
+          <BackButton />
+          {children}
+        </main>
         <Footer />
         {/* <Analytics />
         <SpeedInsights /> */}

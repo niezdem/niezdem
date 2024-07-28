@@ -1,10 +1,14 @@
 import Link from '@/components/ui/Link';
+import Title from '@/components/ui/Title';
 import Info from './info.mdx';
 
 const ContactPage = () => {
   return (
     <>
-      <div className="n-container mb-4">
+      <div className="n-container prose prose-lg">
+        <Info />
+      </div>
+      <div className="n-container mt-4">
         <Link
           href="/Dmitr_Niezdemkowski_CV.pdf"
           target="_blank"
@@ -12,9 +16,6 @@ const ContactPage = () => {
         >
           <div className="h-2 w-6 rounded-lg bg-rose-500" />
         </Link>
-      </div>
-      <div className="n-container prose prose-lg">
-        <Info />
       </div>
     </>
   );

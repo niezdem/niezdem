@@ -113,9 +113,9 @@ const GamesPage = async () => {
 
   if (!data) {
     return (
-      <main className="mx-auto max-w-4xl">
+      <div className="n-container">
         <Title size="3xl">Something bad happened. Refresh the page.</Title>
-      </main>
+      </div>
     );
   }
 
@@ -124,7 +124,7 @@ const GamesPage = async () => {
   );
 
   return (
-    <main className="mx-auto max-w-4xl">
+    <div className="n-container">
       <Title size="3xl" className="mb-8">
         Games I beat: <span className="opacity-75">{total}</span>
       </Title>
@@ -140,7 +140,7 @@ const GamesPage = async () => {
 
         <PCInfo />
       </div>
-    </main>
+    </div>
   );
 };
 

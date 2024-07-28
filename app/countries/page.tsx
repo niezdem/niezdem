@@ -48,9 +48,9 @@ const CountriesPage = async () => {
 
   if (!data) {
     return (
-      <main className="mx-auto max-w-4xl">
+      <div className="n-container">
         <Title size="3xl">Something bad happened. Refresh the page.</Title>
-      </main>
+      </div>
     );
   }
 
@@ -59,7 +59,7 @@ const CountriesPage = async () => {
   );
 
   return (
-    <main className="mx-auto max-w-4xl">
+    <div className="n-container">
       <Title size="3xl" className="mb-8">
         Countries I visited:{' '}
         <span className="opacity-75">{totalCountries}</span>
@@ -71,7 +71,7 @@ const CountriesPage = async () => {
           return <TripsByYear key={key} title={year} trips={trips} />;
         })}
       </div>
-    </main>
+    </div>
   );
 };
 
