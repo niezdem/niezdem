@@ -96,7 +96,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
       <head />
       <body className="flex min-h-full flex-col font-montserrat">
         <NavBar />
-        <main className="flex-grow">
+        <main className="flex flex-grow flex-col">
           <BackButton />
           {children}
         </main>

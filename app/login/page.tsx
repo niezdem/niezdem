@@ -9,16 +9,20 @@ const Login = async () => {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  if (user) {
-    redirect('/');
+    if (user) {
+      redirect('/');
+    }
+  } catch (error) {
+    console.error('Error fetching user:', error);
   }
 
   return (
-    <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
+    <div className="n-container flex flex-grow flex-col items-center justify-center">
       <GithubLogin />
       <Messages />
     </div>
