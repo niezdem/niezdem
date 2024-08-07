@@ -6,7 +6,7 @@ const WorkAvailabilityWidget = () => (
     link="/contact"
     title={`Open to opportunities\u00A0➔`}
     hoverColor="rgba(255, 255, 255, 0.2)"
-    className={`bg-gradient-to-br from-rose-400 to-rose-500/50 grayscale-0`}
+    className={`bg-gradient-to-br from-rose-400 to-rose-500/50 md:grayscale-0`}
   >
     <Text className="z-10">
       I&apos;m ready to dive into work without skipping a beat. Curious about

@@ -37,7 +37,6 @@ export interface Database {
       games: {
         Row: {
           created_at: string
-          developer: string
           finished_date: string
           id: string
           name: string
@@ -45,7 +44,6 @@ export interface Database {
         }
         Insert: {
           created_at?: string
-          developer: string
           finished_date?: string
           id?: string
           name: string
@@ -53,47 +51,10 @@ export interface Database {
         }
         Update: {
           created_at?: string
-          developer?: string
           finished_date?: string
           id?: string
           name?: string
           platform?: Database["public"]["Enums"]["platform_type"]
-        }
-        Relationships: []
-      }
-      portfolio: {
-        Row: {
-          created_at: string
-          description: string | null
-          id: string
-          image: string | null
-          project_mdx: string | null
-          status: string | null
-          tags: string[] | null
-          title: string | null
-          url: string | null
-        }
-        Insert: {
-          created_at?: string
-          description?: string | null
-          id?: string
-          image?: string | null
-          project_mdx?: string | null
-          status?: string | null
-          tags?: string[] | null
-          title?: string | null
-          url?: string | null
-        }
-        Update: {
-          created_at?: string
-          description?: string | null
-          id?: string
-          image?: string | null
-          project_mdx?: string | null
-          status?: string | null
-          tags?: string[] | null
-          title?: string | null
-          url?: string | null
         }
         Relationships: []
       }
@@ -105,7 +66,6 @@ export interface Database {
           created_at: string
           end_date: string
           id: string
-          range_text: string
           start_date: string
         }
         Insert: {
@@ -115,7 +75,6 @@ export interface Database {
           created_at?: string
           end_date?: string
           id?: string
-          range_text: string
           start_date?: string
         }
         Update: {
@@ -125,7 +84,6 @@ export interface Database {
           created_at?: string
           end_date?: string
           id?: string
-          range_text?: string
           start_date?: string
         }
         Relationships: []
@@ -170,7 +128,7 @@ export interface Database {
       }
     }
     Enums: {
-      platform_type: "PC" | "Xbox" | "PlayStation 5" | "Steam Deck" | "Nintendo"
+      platform_type: "PC" | "Xbox" | "PlayStation" | "Steam Deck" | "Nintendo"
       user_rights: "ADMIN" | "USER"
     }
     CompositeTypes: {

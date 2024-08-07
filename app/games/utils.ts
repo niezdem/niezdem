@@ -95,14 +95,10 @@ export const getLatestGames = async () => {
 
 export const createGameItem = async ({
   name,
-  developer,
-  releaseYear,
   platform,
   finishedDate,
 }: {
   name: string;
-  developer: string;
-  releaseYear: number;
   platform: Database['public']['Enums']['platform_type'];
   finishedDate: string;
 }) => {
@@ -111,7 +107,6 @@ export const createGameItem = async ({
   try {
     await supabase.from('games').insert({
       name: name.toString(),
-      developer: developer.toString(),
       platform,
       finished_date: finishedDate.toString(),
     });

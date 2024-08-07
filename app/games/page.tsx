@@ -1,10 +1,10 @@
-// import AddGame from '@/app/games/AddGame';
-// import RemoveGame from '@/app/games/RemoveGame';
+import AddGame from '@/app/games/AddGame';
+import RemoveGame from '@/app/games/RemoveGame';
 import { type Game, getGames, getUserRights } from '@/app/games/utils';
 import {
   NintendoIcon,
   PCIcon,
-  PS5Icon,
+  PSIcon,
   SteamDeckIcon,
   XboxIcon,
 } from '@/app/games/Platforms';
@@ -45,7 +45,7 @@ const PlatformIcon = ({ platform }: { platform: string }) => {
       Icon = XboxIcon;
       break;
     case 'PlayStation 5':
-      Icon = PS5Icon;
+      Icon = PSIcon;
       break;
     case 'Steam Deck':
       Icon = SteamDeckIcon;
@@ -83,7 +83,7 @@ const GamesByYear = async ({
   title: string;
   gamesList: Game[];
 }) => {
-  // const userRights = await getUserRights();
+  const userRights = await getUserRights();
 
   return (
     <>
@@ -99,7 +99,7 @@ const GamesByYear = async ({
               </Text>
             </div>
 
-            {/* {userRights === 'ADMIN' && <RemoveGame id={game.id} />} */}
+            {userRights === 'ADMIN' && <RemoveGame id={game.id} />}
           </li>
         ))}
       </ul>
@@ -109,7 +109,7 @@ const GamesByYear = async ({
 
 const GamesPage = async () => {
   const { data, total } = await getGames();
-  // const userRights = await getUserRights();
+  const userRights = await getUserRights();
 
   if (!data) {
     return (
@@ -129,7 +129,7 @@ const GamesPage = async () => {
         Games I beat: <span className="opacity-75">{total}</span>
       </Title>
 
-      {/* {userRights === 'ADMIN' && <AddGame />} */}
+      {userRights === 'ADMIN' && <AddGame />}
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-6">

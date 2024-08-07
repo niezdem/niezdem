@@ -46,9 +46,6 @@ export default async function CountriesOG() {
                   style={font('Unbounded 400')}
                 >
                   {trip.country_flag} {trip.city}, {trip.country}{' '}
-                  <span tw="ml-6 text-xl leading-2 text-gray-400">
-                    {trip.range_text}
-                  </span>
                 </div>
               ))}
             </div>

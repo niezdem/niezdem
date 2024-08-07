@@ -1,5 +1,7 @@
+-- Create user_rights enum type
 create type user_rights as enum ('ADMIN', 'USER');
 
+-- Create users table
 create table users
 (
     id          uuid                       not null,
@@ -11,10 +13,14 @@ create table users
     foreign key (id) references auth.users (id) on update cascade on delete cascade
 );
 
+-- Enable row level security on users table
 alter table users
     enable row level security;
+
+-- Create policy for read access for users
 create policy "Enable read access for user" on users for select using (auth.uid() = id);
 
+-- Create function handle_new_user
 create or replace function handle_new_user() returns trigger
     language plpgsql
     security definer set search_path = public as
@@ -26,6 +32,7 @@ begin
 end;
 $$;
 
+-- Create function is_admin
 create or replace function is_admin() returns boolean
     language plpgsql as
 $$
@@ -34,29 +41,37 @@ begin
 end;
 $$;
 
+-- Create trigger on_auth_user_created
 create trigger on_auth_user_created
     after insert
     on auth.users
     for each row
 execute procedure handle_new_user();
 
-create type platform_type as enum ('PC', 'Xbox', 'PlayStation 5', 'Steam Deck', 'Nintendo');
+-- Create platform_type enum type
+create type platform_type as enum ('PC', 'Xbox', 'PlayStation', 'Steam Deck', 'Nintendo');
+
+-- Create games table
 create table games
 (
     id            uuid primary key         not null default gen_random_uuid(),
     name          text                     not null,
-    developer     text                     not null,
     platform      platform_type            not null,
     finished_date date                     not null default now(),
     created_at    timestamp with time zone not null default now()
 );
 
+-- Enable row level security on games table
 alter table games
     enable row level security;
+
+-- Create policy for read access for all users on games table
 create policy "Enable read access for all users" on games as permissive for select to public using (true);
 
-create policy "Enable all operations for ADMIN users only" on games for all using (is_admin());
+-- Create policy for all operations for ADMIN users only on games table
+create policy "Enable all operations for ADMIN users only" on games for all 
 
+-- Create travels table
 create table travels
 (
     id           uuid primary key         not null default gen_random_uuid(),
@@ -65,27 +80,15 @@ create table travels
     country_flag text                     not null,
     start_date   date                     not null default now(),
     end_date     date                     not null default now(),
-    range_text   text                     not null,
     created_at   timestamp with time zone not null default now()
 );
 
+-- Enable row level security on travels table
 alter table travels
     enable row level security;
+
+-- Create policy for read access for all users on travels table
 create policy "Enable read access for all users" on travels as permissive for select to public using (true);
 
-
-create or replace function generate_range() returns trigger as
-$$
-begin
-    new.range_text := case when extract(month from new.start_date) = extract(month from new.end_date)
-                               then to_char(new.start_date, 'FMMonth')
-                           else to_char(new.start_date, 'FMMonth') || '...' || to_char(new.end_date, 'FMMonth') end;
-    return new;
-end;
-$$ language plpgsql;
-
-create trigger generate_range_trigger
-    before insert or update
-    on travels
-    for each row
-execute function generate_range();
+-- Create policy for all operations for ADMIN users only on travels table
+create policy "Enable all operations for ADMIN users only" on travels for all 

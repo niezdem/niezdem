@@ -38,7 +38,7 @@ const Link = ({
         {label}
       </Text>
       <span
-        className="absolute bottom-0 left-0 hidden h-2 w-full bg-rose-500 transition-all 
+        className="absolute bottom-0 left-0 hidden h-[0.375rem] w-full bg-rose-500 transition-all 
         duration-300 md:block
         md:translate-x-[-100%] md:translate-y-0 md:opacity-0
         md:group-hover:translate-x-0 md:group-hover:translate-y-1 md:group-hover:opacity-100

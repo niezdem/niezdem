@@ -7,12 +7,13 @@ import CountriesWidget from '@/components/CountriesWidget';
 
 const DashboardSection = () => (
   <div
+    className="-mb-10 py-10 md:-mb-20 md:py-20"
     style={{
       background:
         'linear-gradient(180deg, transparent, rgba(113, 113, 122, .10) 35%, rgba(113, 113, 122, .10) 65%, transparent)',
     }}
   >
-    <section className="n-container -mb-10 py-10 md:-mb-20 md:py-20">
+    <section className="n-container">
       <div className="grid gap-8 md:grid-cols-2 md:gap-10">
         <Title size="5xl">Let&apos;s get acquainted</Title>
         <Text>

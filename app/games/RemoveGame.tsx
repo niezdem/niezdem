@@ -13,7 +13,7 @@ const RemoveGame = async ({ id }: { id: string }) => {
     <form action={removeGame}>
       <button
         type="submit"
-        className="text-xs text-white underline decoration-dotted"
+        className="text-xs text-rose-500 underline decoration-dotted"
       >
         remove
       </button>
