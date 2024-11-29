@@ -1,7 +1,12 @@
+import Button from '@/components/ui/Button';
+import { ArrowUpTrayIcon } from '@heroicons/react/24/solid';
+
 const SignOutButton = () => {
   return (
     <form action="/api/auth/sign-out" method="post">
-      <button className="border-dotted text-xs text-gray-400">Sign out</button>
+      <Button type="submit">
+        <ArrowUpTrayIcon className="size-6" />
+      </Button>
     </form>
   );
 };

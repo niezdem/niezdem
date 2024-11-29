@@ -1,11 +1,17 @@
 import { revalidatePath } from 'next/cache';
-import { Button } from '@headlessui/react';
 
 import { createGameItem, getUserInfo } from '@/app/games/utils';
-import Text from '@/components/ui/Text';
 import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+import Button from '@/components/ui/Button';
 
-const platformTypes = ['PC', 'Xbox', 'PlayStation', 'Steam Deck', 'Nintendo'];
+const platformTypes = [
+  { name: 'PC', value: 'PC' },
+  { name: 'Xbox', value: 'Xbox' },
+  { name: 'PlayStation', value: 'PlayStation' },
+  { name: 'Steam Deck', value: 'Steam Deck' },
+  { name: 'Nintendo', value: 'Nintendo' },
+];
 
 const AddGame = async () => {
   const user = await getUserInfo();
@@ -30,8 +36,11 @@ const AddGame = async () => {
   const currentDate = date.toISOString().slice(0, 10);
 
   return (
-    <form action={addGame} className="text-black">
-      <fieldset disabled={!user} className="flex items-end gap-2">
+    <form action={addGame} className="mb-8">
+      <fieldset
+        disabled={!user}
+        className="flex flex-col gap-2 sm:flex-row sm:items-end"
+      >
         <Input
           label="Game's name"
           name="name"
@@ -39,13 +48,7 @@ const AddGame = async () => {
           type="text"
         />
 
-        <select name="platform" id="platform">
-          {platformTypes.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
+        <Select label="Platform" name="platform" options={platformTypes} />
 
         <Input
           label="Date when I finished the game"
@@ -55,12 +58,7 @@ const AddGame = async () => {
           defaultValue={currentDate}
         />
 
-        <Button
-          type="submit"
-          className="h-[2.375rem] rounded bg-rose-500 px-4 py-2 text-sm text-white data-[active]:bg-rose-600 data-[hover]:bg-rose-400"
-        >
-          Add New Game
-        </Button>
+        <Button type="submit">Add New Game</Button>
       </fieldset>
     </form>
   );
