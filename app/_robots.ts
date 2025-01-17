@@ -5,7 +5,7 @@ export default function robots() {
         userAgent: '*',
       },
     ],
-    sitemap: 'https://nezdem.com/sitemap.xml',
-    host: 'https://nezdem.com',
+    sitemap: 'https://niezdem.com/sitemap.xml',
+    host: 'https://niezdem.com',
   };
 }

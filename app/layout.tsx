@@ -18,22 +18,22 @@ const montserrat = Montserrat_Alternates({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nezdem.com'),
+  metadataBase: new URL('https://niezdem.com'),
   title: {
-    default: 'Dmitriy Yakovlev',
-    template: '%s | Dmitriy Yakovlev',
+    default: 'Dmitr Niezdemkowski',
+    template: '%s | Dmitr Niezdemkowski',
   },
   description:
     'I am Dmitriy — your go-to guy for all things web design and frontend development',
   openGraph: {
-    title: 'Dmitriy Yakovlev',
+    title: 'Dmitr Niezdemkowski',
     description:
       'I am Dmitriy — your go-to guy for all things web design and frontend development',
-    url: 'https://nezdem.com',
-    siteName: 'Dmitriy Yakovlev',
+    url: 'https://niezdem.com',
+    siteName: 'Dmitr Niezdemkowski',
     images: [
       {
-        url: 'https://nezdem.com/og.png',
+        url: 'https://niezdem.com/og.png',
         width: 1200,
         height: 628,
       },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Dmitriy Yakovlev',
+    title: 'Dmitr Niezdemkowski',
     card: 'summary_large_image',
   },
   icons: {

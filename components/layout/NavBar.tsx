@@ -3,9 +3,7 @@ import { cookies } from 'next/headers';
 
 import Logo from '@/components/layout/Logo';
 import Title from '@/components/ui/Title';
-import Button from '@/components/ui/Button';
 import CurrentTimeWidget from '@/components/layout/CurrentTime';
-import SignOutButton from '@/components/layout/SignOutButton';
 import { createClient } from '@/utils/supabase/server';
 
 const NavBar = async () => {
@@ -29,18 +27,7 @@ const NavBar = async () => {
           </div>
         </Link>
       </div>
-
-      <section className="flex gap-4">
-        <CurrentTimeWidget />
-
-        {user ? (
-          <SignOutButton />
-        ) : (
-          <Button>
-            <Link href="/login">Login</Link>
-          </Button>
-        )}
-      </section>
+      <CurrentTimeWidget />
     </nav>
   );
 };
