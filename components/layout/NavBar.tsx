@@ -4,7 +4,6 @@ import { cookies } from 'next/headers';
 import Logo from '@/components/layout/Logo';
 import Title from '@/components/ui/Title';
 import CurrentTimeWidget from '@/components/layout/CurrentTime';
-import SignOutButton from '@/components/SignOutButton';
 import { createClient } from '@/utils/supabase/server';
 
 const NavBar = async () => {
@@ -21,21 +20,14 @@ const NavBar = async () => {
         <Link href="/">
           <div className="flex items-center gap-2">
             <Logo width={50} height={50} />
-            <Title size="lg">
+            <Title size="lg" className="hidden sm:block">
               <div>Dmitr</div>
               <div>Niezdemkowski</div>
             </Title>
           </div>
         </Link>
       </div>
-
       <CurrentTimeWidget />
-
-      {user && (
-        <div className="flex flex-col items-center gap-1 border-dotted text-xs text-gray-300">
-          <SignOutButton />
-        </div>
-      )}
     </nav>
   );
 };

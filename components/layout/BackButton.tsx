@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Link from '@/components/ui/Link';
 
-const backlessLayoutPages = ['/'];
+const backlessLayoutPages = ['/', '/login'];
 
 const BackButton = () => {
   const pathname = usePathname();
