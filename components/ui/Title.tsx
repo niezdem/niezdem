@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { cn } from '@/lib/utils';
+import * as React from 'react';
 
 const sizeClasses = {
   sm: 'text-sm',
@@ -34,7 +34,10 @@ type Props = {
 
 const Title = ({
   order = 1,
-  size = '2xl',
+  size = {
+    default: 'xl',
+    md: '2xl',
+  },
   color = 'text-zinc-100',
   align = 'left',
   backlight,

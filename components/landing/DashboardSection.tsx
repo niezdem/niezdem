@@ -15,7 +15,14 @@ const DashboardSection = () => (
   >
     <section className="n-container">
       <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-        <Title size="5xl">Let&apos;s get acquainted</Title>
+        <Title
+          size={{
+            default: '3xl',
+            md: '5xl',
+          }}
+        >
+          Let&apos;s get acquainted
+        </Title>
         <Text>
           I am a Wrocław-based (Poland) solopreneur, proudly waving my company
           flag with the registration number (REGON){' '}
