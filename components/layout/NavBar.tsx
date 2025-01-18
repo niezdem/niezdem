@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 
+import CurrentTimeWidget from '@/components/layout/CurrentTime';
 import Logo from '@/components/layout/Logo';
 import Title from '@/components/ui/Title';
-import CurrentTimeWidget from '@/components/layout/CurrentTime';
 import { createClient } from '@/utils/supabase/server';
 
 const NavBar = async () => {
@@ -15,7 +15,7 @@ const NavBar = async () => {
   } = await supabase.auth.getUser();
 
   return (
-    <nav className="n-container mb-10 flex flex-shrink-0 items-center justify-between py-4 md:mb-20">
+    <nav className="n-container !mt-0 mb-10 flex flex-shrink-0 items-center justify-between py-4 md:mb-20">
       <div className="flex items-center gap-4">
         <Link href="/">
           <div className="flex items-center gap-2">

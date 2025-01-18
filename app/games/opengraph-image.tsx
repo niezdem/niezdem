@@ -46,7 +46,7 @@ export default async function CountriesOG() {
                   style={font('Unbounded 400')}
                 >
                   <div tw="flex">{game.name}</div>
-                  <div tw="flex text-xl leading-2 text-gray-400">
+                  <div tw="flex text-xl leading-2 text-zinc-400">
                     {game.platform}
                   </div>
                 </div>

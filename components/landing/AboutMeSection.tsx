@@ -14,7 +14,7 @@ const AboutMeSection = () => (
 
       <Title
         size={{
-          default: '4xl',
+          default: '3xl',
           md: '5xl',
         }}
         className="mb-8 mt-4"
