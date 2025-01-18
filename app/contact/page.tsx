@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 import FlatCard from '@/components/ui/FlatCard';
+import Link from '@/components/ui/Link';
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 
@@ -16,28 +17,28 @@ const data = [
     badge: 'Where Structure Meets Style',
     title: 'Design Systems',
     children:
-      'I don’t just build design systems, I craft them to perfection. From the first pixel to seamless updates, I ensure your team has a solid foundation and a visually stunning toolkit that’s easy to use and even easier to love.',
+      "I don't just build design systems, I craft them to perfection. From the first pixel to seamless updates, I ensure your team has a solid foundation and a visually stunning toolkit that's easy to use and even easier to love.",
   },
   {
     icon: <CursorArrowRaysIcon />,
     badge: 'Code that Clicks',
     title: 'Frontend Development',
     children:
-      'Clean, responsive, and lightning-fast — my code isn’t just functional, it’s delightful. Whether it’s TypeScript, React, or bringing dusty old codebases back to life, I’m all in for making your front end shine.',
+      "Clean, responsive, and lightning-fast — my code isn't just functional, it's delightful. Whether it's TypeScript, React, or bringing dusty old codebases back to life, I'm all in for making your front end shine.",
   },
   {
     icon: <SparklesIcon />,
     badge: 'Turning Headaches into Head-turners',
     title: 'UX/UI Design',
     children:
-      'Got a user journey that’s more of a maze? Let’s simplify, streamline, and sprinkle some joy into your interface. Whether it’s real estate platforms or tools for bailiffs, I make workflows feel intuitive and satisfying.',
+      "Got a user journey that's more of a maze? Let's simplify, streamline, and sprinkle some joy into your interface. Whether it's real estate platforms or tools for bailiffs, I make workflows feel intuitive and satisfying.",
   },
   {
     icon: <PaintBrushIcon />,
     badge: 'Crafting Beautiful, Fluid Designs',
     title: 'CSS Mastery',
     children:
-      'I don’t just do CSS, I dominate it. Pixel-perfect layouts, responsive designs — everything snaps into place. Flexbox, Grid, custom properties? I make them work like magic.',
+      "I don't just do CSS, I dominate it. Pixel-perfect layouts, responsive designs — everything snaps into place. Flexbox, Grid, custom properties? I make them work like magic.",
   },
   {
     icon: <ScaleIcon />,
@@ -51,7 +52,7 @@ const data = [
 const ContactPage = () => {
   return (
     <>
-      <div className="n-container grid grid-cols-1 gap-12 md:grid-cols-2">
+      <div className="n-container grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div className="flex flex-col gap-6">
           <Title
             size={{
@@ -61,19 +62,27 @@ const ContactPage = () => {
           >
             Hi there, wonderful stranger!
           </Title>
-          <Text>
+          <Text size={{ default: 'md', sm: 'lg' }}>
             So, you&apos;ve got a job proposition for me? Great!
-            <br />
             <br />
             First off, thanks for swinging by. Time&apos;s precious, so
             let&apos;s skip the formalities and get straight to it. I&apos;m{' '}
             <Text backlight>Dmitr</Text> — the bridge between creativity and
             code. With over 10 years of web design wizardry and 5+ years of
             frontend finesse, I&apos;ve been making the internet a more
-            beautiful, functional, and downright enjoyable place.
+            beautiful, functional, and downright enjoyable place. Want the full
+            scoop on where I&apos;ve worked and what I&apos;ve built?{' '}
+            <Link
+              target="_blank"
+              href="Dmitr_Niezdemkowski_CV.pdf"
+              className="inline-flex text-rose-500 transition-colors hover:text-rose-400"
+            >
+              Check out my CV.
+            </Link>
           </Text>
         </div>
-        <div className="flex flex-col gap-8">
+
+        <div className="flex flex-col gap-6 lg:row-span-3">
           <Title
             size={{
               default: '2xl',
@@ -83,7 +92,7 @@ const ContactPage = () => {
             Let me show you exactly what I&apos;m damn good at:
           </Title>
 
-          <section className="flex max-w-xl flex-col gap-8">
+          <section className="grid gap-6 lg:gap-8">
             {data.map((item, index) => (
               <FlatCard
                 key={index}
@@ -96,11 +105,31 @@ const ContactPage = () => {
             ))}
           </section>
         </div>
+
+        <div className="flex flex-col gap-6">
+          <Title
+            size={{
+              default: '2xl',
+              md: '3xl',
+            }}
+          >
+            Let&apos;s get in touch:
+          </Title>
+          <Text size={{ default: 'md', sm: 'lg' }}>
+            Feeling it? Hit me up at <Text backlight>job@niezdem.com</Text> or
+            book a quick call in my{' '}
+            <Link
+              target="_blank"
+              href="https://cal.com/niezdem/"
+              className="inline-flex text-rose-500 transition-colors hover:text-rose-400"
+            >
+              Calendar.
+            </Link>
+          </Text>
+        </div>
       </div>
     </>
   );
 };
 
 export default ContactPage;
-
-// &apos;
